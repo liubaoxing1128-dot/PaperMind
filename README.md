@@ -15,7 +15,13 @@ An AI paper reading workspace powered by Retrieval-Augmented Generation (RAG).
 
 ![PaperMind Demo](image-3.png)
 
-Python | FastAPI | React | Next.js | TypeScript | FAISS
+<img src="https://img.shields.io/badge/Python-3.11-blue">
+<img src="https://img.shields.io/badge/FastAPI-Backend-009688">
+<img src="https://img.shields.io/badge/React-18-61DAFB">
+<img src="https://img.shields.io/badge/Next.js-15-black">
+<img src="https://img.shields.io/badge/TypeScript-5-3178C6">
+<img src="https://img.shields.io/badge/FAISS-Vector_Search-orange">
+<img src="https://img.shields.io/badge/License-MIT-green">
 
 ────────────────────
 
@@ -43,7 +49,7 @@ Python | FastAPI | React | Next.js | TypeScript | FAISS
 ## 🚀 Installation
 
 ```bash
-git clone https://github.com/yourname/PaperMind.git
+git clone https://github.com/liubaoxing1128-dot/PaperMind.git
 
 cd PaperMind
 ```
@@ -78,14 +84,32 @@ python app.py
 npm run dev
 ```
 
-3.
+3. Open in browser
 
-打开
-
-```
+```text
 http://localhost:3000
+
+上传 PDF 文件开始聊天。
+
+## 📂 Project Structure
+
+```text
+PaperMind
+├── frontend/          # Next.js 前端
+├── rag/               # RAG 核心模块
+├── data/              # 示例 PDF
+├── app.py             # FastAPI 服务入口
+├── main.py            # 程序入口
+├── requirements.txt
+├── README.md
+└── .env.example
 ```
 
-上传 PDF
+## 📌 Future Work
 
-开始聊天。
+- [ ] Multi-document retrieval
+- [ ] OCR support
+- [ ] Hybrid Search (BM25 + Vector)
+- [ ] Online deployment
+- [ ] Multi-user workspace
+- [ ] AI Summary & Notes
