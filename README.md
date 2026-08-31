@@ -1,11 +1,13 @@
+> 🚀 An AI-powered workspace for reading, searching, and chatting with research papers.
+
  🧠
 PaperMind
 
-AI-Powered Paper Reading Workspace
+An AI-powered paper reading workspace based on Retrieval-Augmented Generation (RAG).
 
-An AI paper reading workspace powered by Retrieval-Augmented Generation (RAG).
+Upload your PDF, ask questions naturally, and navigate directly to cited pages.
 
-支持 PDF 阅读、知识库管理、AI 问答、Citation 来源跳转与本地知识检索。
+支持 PDF 阅读、AI 问答、Citation 跳转与本地知识库管理。
 
 ## 📷 Product Screenshot
 
@@ -19,8 +21,9 @@ An AI paper reading workspace powered by Retrieval-Augmented Generation (RAG).
 
 ────────────────────
 
-让每一篇论文，
-都能像与 AI 对话一样简单。
+Read papers the way you chat with AI.
+
+让每一篇论文，都能像与 AI 对话一样简单。
 
 ────────────────────
 
