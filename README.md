@@ -81,12 +81,11 @@ python app.py
 npm run dev
 ```
 
-3. Open in browser
+3. Open in your browser
 
-```text
 http://localhost:3000
 
-上传 PDF 文件开始聊天。
+Upload a PDF and start chatting with your documents.
 
 ## 📂 Project Structure
 
