@@ -1,0 +1,391 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  list-style: none;
+}
+
+.item {
+  position: relative;
+  min-width: 0;
+  overflow: visible;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  background: transparent;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.item:has(.documentButton:hover),
+.item:has(.moreButton:hover),
+.item:has(.moreMenu) {
+  border-color: var(--color-border);
+  background: var(--color-surface-subtle);
+}
+
+.itemContent {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+}
+
+.selected {
+  border-color: #d8d8f4;
+  background: var(--color-accent-soft);
+}
+
+.selected::before {
+  position: absolute;
+  top: 9px;
+  bottom: 9px;
+  left: 0;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--color-accent);
+  content: "";
+}
+
+.documentButton,
+.documentRow {
+  display: flex;
+  width: auto;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+}
+
+.moreButton {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  margin-right: 5px;
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-tertiary);
+  background: transparent;
+  cursor: pointer;
+  opacity: 0;
+  transition: color var(--transition-fast), background-color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.item:hover .moreButton,
+.moreButton:focus-visible,
+.moreButton[aria-expanded="true"],
+.selected .moreButton {
+  opacity: 1;
+}
+
+.moreButton:hover,
+.moreButton[aria-expanded="true"] {
+  color: var(--color-text);
+  background: var(--color-surface-muted);
+}
+
+.moreButton:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+.moreMenu {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% - 3px);
+  right: 5px;
+  display: grid;
+  min-width: 124px;
+  padding: 5px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.moreMenu button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 34px;
+  padding: 0 9px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  background: transparent;
+  font: inherit;
+  font-size: var(--font-size-body);
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.moreMenu button:hover:not(:disabled),
+.moreMenu button:focus-visible {
+  background: var(--color-surface-muted);
+}
+
+.moreMenu button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.moreMenu button:disabled {
+  color: var(--color-text-tertiary);
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.moreMenu .deleteMenuItem {
+  color: var(--color-danger);
+}
+
+.moreMenu .deleteMenuItem:hover,
+.moreMenu .deleteMenuItem:focus-visible {
+  background: color-mix(in srgb, var(--color-danger) 9%, var(--color-surface));
+}
+
+.documentButton {
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.documentButton:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.fileIcon {
+  display: grid;
+  width: 31px;
+  height: 35px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 7px;
+  color: var(--color-secondary);
+  background: var(--color-surface);
+  box-shadow: 0 1px 2px rgba(32, 33, 36, 0.04);
+}
+
+.selected .fileIcon {
+  border-color: #ceceef;
+  color: var(--color-accent);
+}
+
+.filename {
+  overflow: hidden;
+  font-size: var(--font-size-body);
+  font-weight: 540;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.status {
+  padding: 14px 6px;
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-body);
+  line-height: 1.6;
+}
+
+.error {
+  color: var(--color-danger);
+}
+
+.dialogBackdrop {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  padding: var(--space-4);
+  place-items: center;
+  background: rgba(24, 25, 28, 0.42);
+}
+
+.dialog {
+  width: min(430px, 100%);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  color: var(--color-text);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-float);
+}
+
+.dialogHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.dialogEyebrow {
+  margin-bottom: 5px;
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-caption);
+  font-weight: 650;
+}
+
+.dialogHeader h2 {
+  overflow-wrap: anywhere;
+  font-size: var(--font-size-h2);
+  line-height: 1.35;
+}
+
+.dialogClose {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  background: transparent;
+  cursor: pointer;
+}
+
+.dialogClose:hover:not(:disabled) {
+  background: var(--color-surface-muted);
+}
+
+.dialogClose:focus-visible,
+.cancelButton:focus-visible,
+.confirmDeleteButton:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.dialogDescription {
+  margin-top: var(--space-5);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-body);
+}
+
+.deleteDetails {
+  display: grid;
+  gap: 9px;
+  margin-top: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  list-style: none;
+  background: var(--color-surface-subtle);
+}
+
+.deleteDetails li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-body);
+}
+
+.deleteDetails svg {
+  color: var(--color-success);
+}
+
+.irreversible {
+  margin-top: var(--space-3);
+  color: var(--color-danger);
+  font-size: var(--font-size-caption);
+  font-weight: 600;
+}
+
+.dialogError {
+  margin-top: var(--space-3);
+  padding: 9px 11px;
+  border-radius: var(--radius-sm);
+  color: var(--color-danger);
+  background: color-mix(in srgb, var(--color-danger) 9%, var(--color-surface));
+  font-size: var(--font-size-caption);
+  line-height: 1.45;
+}
+
+.dialogActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+.cancelButton,
+.confirmDeleteButton {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.cancelButton {
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  background: var(--color-surface);
+}
+
+.cancelButton:hover:not(:disabled) {
+  background: var(--color-surface-muted);
+}
+
+.confirmDeleteButton {
+  border: 1px solid var(--color-danger);
+  color: #ffffff;
+  background: var(--color-danger);
+}
+
+.confirmDeleteButton:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--color-danger) 88%, #000000);
+}
+
+.cancelButton:disabled,
+.confirmDeleteButton:disabled,
+.dialogClose:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.toast {
+  position: fixed;
+  z-index: 1100;
+  bottom: var(--space-5);
+  left: 50%;
+  display: flex;
+  max-width: calc(100vw - 32px);
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-float);
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  transform: translateX(-50%);
+}
+
+.toast svg {
+  color: var(--color-success);
+}
+
+@media (pointer: coarse) {
+  .moreButton {
+    opacity: 1;
+  }
+}

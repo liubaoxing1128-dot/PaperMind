@@ -1,0 +1,57 @@
+.viewerShell {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  padding: 12px;
+  background: var(--color-surface-muted);
+}
+
+.viewer {
+  width: 100%;
+  min-height: 0;
+  flex: 1;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: #e9e9e6;
+  box-shadow: 0 3px 14px rgba(32, 33, 36, 0.08);
+}
+
+.emptyState {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px;
+  color: var(--color-text-tertiary);
+  text-align: center;
+  background: var(--color-surface-muted);
+}
+
+.emptyState p {
+  color: var(--color-text);
+  font-size: var(--font-size-body);
+  font-weight: 650;
+}
+
+.emptyState small {
+  max-width: 310px;
+  margin-top: 7px;
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-caption);
+  line-height: 1.6;
+}
+
+.placeholderMark {
+  display: grid;
+  width: 56px;
+  height: 64px;
+  margin-bottom: 17px;
+  place-items: center;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 8px 13px 13px 8px;
+  color: var(--color-accent);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-float);
+}
