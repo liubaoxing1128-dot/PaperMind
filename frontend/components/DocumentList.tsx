@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Check, ExternalLink, FileText, MoreHorizontal, Trash2, X } from "lucide-react";
+import { API_URL } from "@/lib/api";
 import styles from "./DocumentList.module.css";
 
 export type Document = {
@@ -17,8 +18,6 @@ type DocumentListProps = {
   onSelectDocument: (filename: string) => void;
   onDocumentDeleted: (filename: string) => Promise<void> | void;
 };
-
-const DOCUMENTS_API = "http://127.0.0.1:8000/documents";
 
 function encodeDocumentPath(filename: string) {
   return filename.split("/").map(encodeURIComponent).join("/");
@@ -82,7 +81,7 @@ export default function DocumentList({
     setDeleteError(null);
 
     try {
-      const response = await fetch(`${DOCUMENTS_API}/${encodeDocumentPath(filename)}`, {
+      const response = await fetch(`${API_URL}/documents/${encodeDocumentPath(filename)}`, {
         method: "DELETE",
       });
 

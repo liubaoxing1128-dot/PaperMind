@@ -7,16 +7,15 @@ import DocumentList, { type Document } from "@/components/DocumentList";
 import PDFViewer from "@/components/PDFViewer";
 import UploadButton from "@/components/UploadButton";
 import WelcomeDialog from "@/components/WelcomeDialog";
+import { API_URL } from "@/lib/api";
 import styles from "./page.module.css";
 
 type DocumentsResponse = {
   documents: Document[];
 };
 
-const DOCUMENTS_API = "http://127.0.0.1:8000/documents";
-
 async function fetchDocuments() {
-  const response = await fetch(DOCUMENTS_API, { cache: "no-store" });
+  const response = await fetch(`${API_URL}/documents`, { cache: "no-store" });
 
   if (!response.ok) {
     throw new Error(`Request failed: ${response.status}`);

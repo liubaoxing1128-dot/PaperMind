@@ -2,6 +2,7 @@
 
 import { ChangeEvent, useRef, useState } from "react";
 import { Brain, LoaderCircle, Upload } from "lucide-react";
+import { API_URL } from "@/lib/api";
 import styles from "./UploadButton.module.css";
 
 type UploadStatus = "idle" | "uploading" | "success" | "error";
@@ -15,8 +16,6 @@ type UploadButtonProps = {
   isKnowledgeBaseEmpty: boolean;
   onUploadSuccess: () => Promise<void> | void;
 };
-
-const UPLOAD_API = "http://127.0.0.1:8000/upload";
 
 export default function UploadButton({
   isKnowledgeBaseEmpty,
@@ -47,7 +46,7 @@ export default function UploadButton({
     setMessage("正在处理论文……\nAI 正在读取内容，完成后就可以开始提问。");
 
     try {
-      const response = await fetch(UPLOAD_API, {
+      const response = await fetch(`${API_URL}/upload`, {
         method: "POST",
         body: formData,
       });

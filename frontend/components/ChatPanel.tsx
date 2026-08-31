@@ -2,6 +2,7 @@
 
 import { FormEvent, KeyboardEvent, UIEvent, useEffect, useRef, useState } from "react";
 import { Bot, ChevronDown, ChevronUp, FileText, Send } from "lucide-react";
+import { chat } from "@/lib/api";
 import MarkdownRenderer from "./MarkdownRenderer";
 import styles from "./ChatPanel.module.css";
 
@@ -18,16 +19,10 @@ type Message = {
   sourcesExpanded?: boolean;
 };
 
-type ChatResponse = {
-  answer: string;
-  sources: Source[];
-};
-
 type ChatPanelProps = {
   onCitationClick: (file: string, page: number | null) => void;
 };
 
-const CHAT_API = "http://127.0.0.1:8000/chat";
 const AUTO_FOLLOW_THRESHOLD = 96;
 
 function createMessageId() {
@@ -73,17 +68,7 @@ export default function ChatPanel({ onCitationClick }: ChatPanelProps) {
     setLoading(true);
 
     try {
-      const response = await fetch(CHAT_API, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`聊天请求失败：${response.status}`);
-      }
-
-      const data: ChatResponse = await response.json();
+      const data = await chat(question);
       setMessages((current) => [
         ...current,
         {

@@ -1,4 +1,5 @@
 import { FileText } from "lucide-react";
+import { API_URL } from "@/lib/api";
 import styles from "./PDFViewer.module.css";
 
 type PDFViewerProps = {
@@ -6,8 +7,6 @@ type PDFViewerProps = {
   selectedPage: number | null;
   jumpId: number;
 };
-
-const DOCUMENTS_API = "http://127.0.0.1:8000/documents";
 
 function encodeDocumentPath(filename: string) {
   return filename.split("/").map(encodeURIComponent).join("/");
@@ -31,7 +30,7 @@ export default function PDFViewer({
   }
 
   const pageFragment = selectedPage !== null ? `#page=${selectedPage}` : "";
-  const pdfUrl = `${DOCUMENTS_API}/${encodeDocumentPath(selectedPdf)}/file${pageFragment}`;
+  const pdfUrl = `${API_URL}/documents/${encodeDocumentPath(selectedPdf)}/file${pageFragment}`;
 
   return (
     <div className={styles.viewerShell}>
