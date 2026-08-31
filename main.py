@@ -8,6 +8,7 @@ from pydantic import BaseModel
 
 import knowledge_base
 from app import ask
+from config import FRONTEND_URL
 from document_service import (
     DocumentNotFoundError,
     InvalidDocumentPathError,
@@ -43,7 +44,7 @@ app = FastAPI(lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000","https://paper-mind-smoky.vercel.app",],
+    allow_origins=["http://localhost:3000", FRONTEND_URL],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

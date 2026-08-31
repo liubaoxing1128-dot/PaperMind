@@ -10,3 +10,6 @@ DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 DEEPSEEK_MODEL = "deepseek-v4-flash"
 BASE_URL = "https://api.deepseek.com"
+FRONTEND_URL = (
+    os.getenv("FRONTEND_URL") or "https://paper-mind-smoky.vercel.app"
+).rstrip("/")
