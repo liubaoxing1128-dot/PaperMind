@@ -15,13 +15,7 @@ An AI paper reading workspace powered by Retrieval-Augmented Generation (RAG).
 
 ![PaperMind Demo](image-3.png)
 
-<img src="https://img.shields.io/badge/Python-3.11-blue">
-<img src="https://img.shields.io/badge/FastAPI-Backend-009688">
-<img src="https://img.shields.io/badge/React-18-61DAFB">
-<img src="https://img.shields.io/badge/Next.js-15-black">
-<img src="https://img.shields.io/badge/TypeScript-5-3178C6">
-<img src="https://img.shields.io/badge/FAISS-Vector_Search-orange">
-<img src="https://img.shields.io/badge/License-MIT-green">
+<img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white"> <img src="https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white"> <img src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black"> <img src="https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white"> <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/FAISS-Vector_Search-orange"> <img src="https://img.shields.io/badge/License-MIT-green">
 
 ────────────────────
 
